@@ -4,13 +4,21 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command
 from tinydb import TinyDB, Query
 import googletrans
+import sched
+import threading
 
+# chatbot variables
 logging.basicConfig(level=logging.INFO, filename="bot_logs.log", filemode="w", format="%(asctime)s %(levelname)s %(message)s")
 bot = Bot(token="6414216172:AAESR33MikSbdNKLltT02w2fMZBtwKkyAYs")
 dp = Dispatcher(bot)
+
+# local database variables
 users = TinyDB("data/users_ids.json")
 questions = TinyDB("data/irregular_questions.json")
 qur = Query()
+
+#schedule, needed to upload data at a certain time
+
 
 @dp.message(Command("start"))
 async def start(message: types.Message):

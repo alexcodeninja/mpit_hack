@@ -2,7 +2,7 @@
 # and needs to simplify working with the database
 import requests
 
-db_url = "firebase link"
+db_url = ""
 
 def patch_data(url_data=str, **data):
     requests.patch(url=db_url+url_data+"/.json", json=data)
