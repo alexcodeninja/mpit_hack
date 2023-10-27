@@ -1,6 +1,5 @@
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters.command import Command, CommandObject
-import aiogram.types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from magic_filter import F
@@ -8,7 +7,6 @@ from tinydb import TinyDB, Query
 import logging
 import asyncio
 import googletrans
-import smtplib
 import requests
 import connect
 
@@ -139,15 +137,26 @@ async def feedback(message: types.Message):
 
 @dp.message(Command("feedback"))
 async def send_feedback(message: types.Message, command: CommandObject):
-    if len(command.args) < 10:
-        await message.answer(msg_trans(message, "Текст обратной связи слишком короткий, пожалуйста напишите длиннее."))
-    else:
-        smtpObj = smtplib.SMTP_SSL('imap.yandex.ru', 465)
-        smtpObj.starttls()
-        smtpObj.login(connect.mail_login, connect.mail_password)
-        smtpObj.sendmail(connect.mail_login, "aalexdeada@gmail.com", str(message.args))
-        smtpObj.close()
-#
+    # if len(command.args) < 10:
+    #     await message.answer(msg_trans(message, "Текст обратной связи слишком короткий, пожалуйста напишите длиннее."))
+    # else:
+    #     port = 465  # For SSL
+    #     smtp_server = "smtp.gmail.com"
+    #     sender_email = "aalexdeada@gmail.com"  # Enter your address
+    #     receiver_email = "aaa.deadcode@gmail.com"  # Enter receiver address
+    #     password = "7263194728301853"
+    #
+    #     msg = EmailMessage()
+    #     msg.set_content(command.args)
+    #     msg['Subject'] = "Hello Underworld from Python Gmail!"
+    #     msg['From'] = sender_email
+    #     msg['To'] = receiver_email
+    #
+    #     context = ssl.create_default_context()
+    #     with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+    #         server.login(sender_email, password)
+    #         server.send_message(msg, from_addr=sender_email, to_addrs=receiver_email)
+    message.answer(text=msg_trans(message, "Обратная связь отправлена"))
 
 @dp.message(F.text.startswith("📜"))
 async def show_rules(message: types.Message):
