@@ -13,7 +13,7 @@ import connect
 ####    setup local variables, configs and other    ####
 
 # logging settings
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, filename = "bot_logs.log", filemode="w")
 
 # chatbot variables
 bot = Bot(token="6414216172:AAESR33MikSbdNKLltT02w2fMZBtwKkyAYs")
@@ -76,7 +76,7 @@ async def cmd_start(message: types.Message):
         await cmd_menu(message)
 
 
-@dp.message(F.text.in_({"/menu", "Открыть меню"}))
+@dp.message(F.text.in_({"/menu", "Открыть меню", "Menu openen", "Menú abierto", "打开菜单", "Open menu"}))
 async def cmd_menu(message: types.Message):
     labels = [
         msg_trans(message, "Вопросы посещения"),
@@ -92,7 +92,7 @@ async def cmd_menu(message: types.Message):
     ]
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True,
                                          keyboard=kb,
-                                         one_time_keyboard=True,
+                                         one_time_keyboard=False,
                                          input_field_placeholder="Выберите пункт из меню")
 
     await message.answer(text=msg_trans(message=message, bot_msg="Рады видеть вас в нашем боте.\nВы можете воспользоваться меню"), reply_markup=keyboard)
@@ -105,7 +105,7 @@ async def langsel(message):
         "lg": message.data
     })
     kb = [[
-        KeyboardButton(text="Открыть меню")
+        KeyboardButton(text=msg_trans(message, "Открыть меню"))
     ]]
     await bot.send_message(chat_id=message.from_user.id, text=msg_trans(message, bot_msg="Настройка языка завершена, тепепь вы можете в полной степени пользоваться телеботом :)"), reply_markup=ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True, one_time_keyboard=True))
 # Вопросы и ответы Q&A
@@ -137,6 +137,7 @@ async def feedback(message: types.Message):
 
 @dp.message(Command("feedback"))
 async def send_feedback(message: types.Message, command: CommandObject):
+    print("something")
     # if len(command.args) < 10:
     #     await message.answer(msg_trans(message, "Текст обратной связи слишком короткий, пожалуйста напишите длиннее."))
     # else:
@@ -156,7 +157,7 @@ async def send_feedback(message: types.Message, command: CommandObject):
     #     with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
     #         server.login(sender_email, password)
     #         server.send_message(msg, from_addr=sender_email, to_addrs=receiver_email)
-    message.answer(text=msg_trans(message, "Обратная связь отправлена"))
+    await message.answer(text=msg_trans(message, "Обратная связь отправлена"))
 
 @dp.message(F.text.startswith("📜"))
 async def show_rules(message: types.Message):
@@ -186,7 +187,7 @@ async def show_weather(message):
     data = get_weather_data()
     print(data, type(data))
 
-    await message.answer(text="погода на Куршской косе на следующие 24 часа:")
+    await message.answer(text=msg_trans(message,"погода на Куршской косе на следующие 24 часа:"))
     await message.answer(text=msg_trans(message, bot_msg=data))
     # message.answer(text=msg_trans(message=message, bot_msg=data))
 
