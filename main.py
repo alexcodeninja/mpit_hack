@@ -83,7 +83,8 @@ async def cmd_menu(message: types.Message):
         msg_trans(message, "Погода"),
         msg_trans(message, "Правила пребывания"),
         msg_trans(message, "Обратная связь"),
-    ]
+    ]\
+
     kb = [
         [types.KeyboardButton(text=f"❔ {labels[0]}")],
         [types.KeyboardButton(text=f"⛅️ {labels[1]}")],
@@ -114,7 +115,7 @@ async def langsel(message):
 async def qanda(message: types.Message):
     builder = InlineKeyboardBuilder()
     quest_txt = msg_trans(message=message, bot_msg="Вопрос ")
-    for i in range(1,8):
+    for i in range(1, 8):
         builder.button(text=f"{quest_txt} №{i}", callback_data=f"{i}")
     builder.adjust(2)
     await message.answer(msg_trans(message, bot_msg="""1.В какие дни и в какое время национальный парк «Куршская коса» открыт для посещения?

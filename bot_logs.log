@@ -1,2 +1,101 @@
 INFO:aiogram.dispatcher:Start polling
 INFO:aiogram.dispatcher:Run polling for bot @kurshkosabot id=6414216172 - 'КосуляХелпер / KosulyaHelper'
+INFO:aiogram.event:Update id=430003253 is handled. Duration 9938 ms by bot id=6414216172
+INFO:aiogram.event:Update id=430003252 is handled. Duration 15436 ms by bot id=6414216172
+INFO:aiogram.event:Update id=430003254 is handled. Duration 15875 ms by bot id=6414216172
+INFO:aiogram.event:Update id=430003255 is handled. Duration 17000 ms by bot id=6414216172
+INFO:aiogram.event:Update id=430003256 is handled. Duration 1328 ms by bot id=6414216172
+INFO:aiogram.event:Update id=430003257 is not handled. Duration 0 ms by bot id=6414216172
+INFO:aiogram.event:Update id=430003258 is handled. Duration 7156 ms by bot id=6414216172
+INFO:aiogram.event:Update id=430003259 is handled. Duration 1640 ms by bot id=6414216172
+INFO:aiogram.event:Update id=430003260 is handled. Duration 2968 ms by bot id=6414216172
+INFO:aiogram.event:Update id=430003261 is handled. Duration 2546 ms by bot id=6414216172
+INFO:aiogram.event:Update id=430003262 is handled. Duration 2125 ms by bot id=6414216172
+INFO:aiogram.event:Update id=430003263 is not handled. Duration 15469 ms by bot id=6414216172
+ERROR:aiogram.event:Cause exception while process update id=430003263 by bot id=6414216172
+ReadTimeout: The read operation timed out
+Traceback (most recent call last):
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 308, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\fsm\middleware.py", line 41, in __call__
+    return await handler(event, data)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 120, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\dispatcher.py", line 275, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\router.py", line 136, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\event\telegram.py", line 120, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\alex\projects\mpit\main.py", line 167, in show_rules
+    await message.answer(text=msg_trans(message=message, bot_msg="""Уважаемые посетители национального парка просим соблюдать ниже указанные правила:
+  File "C:\Users\alex\projects\mpit\main.py", line 53, in msg_trans
+    translated = translator.translate(text=bot_msg, src="ru", dest=dest)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\googletrans\client.py", line 210, in translate
+    data, response = self._translate(text, dest, src, kwargs)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\googletrans\client.py", line 108, in _translate
+    r = self.client.get(url, params=params)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 755, in get
+    return self.request(
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 600, in request
+    return self.send(
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 620, in send
+    response = self.send_handling_redirects(
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 647, in send_handling_redirects
+    response = self.send_handling_auth(
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 684, in send_handling_auth
+    response = self.send_single_request(request, timeout)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpx\_client.py", line 714, in send_single_request
+    ) = transport.request(
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_sync\connection_pool.py", line 152, in request
+    response = connection.request(
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_sync\connection.py", line 78, in request
+    return self.connection.request(method, url, headers, stream, timeout)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_sync\http2.py", line 118, in request
+    return h2_stream.request(method, url, headers, stream, timeout)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_sync\http2.py", line 292, in request
+    status_code, headers = self.receive_response(timeout)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_sync\http2.py", line 344, in receive_response
+    event = self.connection.wait_for_event(self.stream_id, timeout)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_sync\http2.py", line 197, in wait_for_event
+    self.receive_events(timeout)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_sync\http2.py", line 204, in receive_events
+    data = self.socket.read(self.READ_NUM_BYTES, timeout)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_backends\sync.py", line 60, in read
+    with map_exceptions(exc_map):
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\alex\AppData\Local\Programs\Python\Python310\lib\site-packages\httpcore\_exceptions.py", line 12, in map_exceptions
+    raise to_exc(exc) from None
+httpcore._exceptions.ReadTimeout: The read operation timed out
+INFO:aiogram.event:Update id=430003264 is handled. Duration 3453 ms by bot id=6414216172
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+WARNING:aiogram.dispatcher:Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 6414216172)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+WARNING:aiogram.dispatcher:Sleep for 1.225513 seconds and try again... (tryings = 1, bot id = 6414216172)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+WARNING:aiogram.dispatcher:Sleep for 1.529359 seconds and try again... (tryings = 2, bot id = 6414216172)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+WARNING:aiogram.dispatcher:Sleep for 1.966085 seconds and try again... (tryings = 3, bot id = 6414216172)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+WARNING:aiogram.dispatcher:Sleep for 2.703323 seconds and try again... (tryings = 4, bot id = 6414216172)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+WARNING:aiogram.dispatcher:Sleep for 3.584390 seconds and try again... (tryings = 5, bot id = 6414216172)
+ERROR:aiogram.dispatcher:Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [getaddrinfo failed]
+WARNING:aiogram.dispatcher:Sleep for 4.663644 seconds and try again... (tryings = 6, bot id = 6414216172)
+INFO:aiogram.dispatcher:Polling stopped
+INFO:aiogram.dispatcher:Polling stopped for bot @kurshkosabot id=6414216172 - 'КосуляХелпер / KosulyaHelper'
